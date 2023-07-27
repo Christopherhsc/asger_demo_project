@@ -1,5 +1,11 @@
 .navbar{
     justify-content: space-between;
-    background-color: #ededed;
     height: 75px;
+}
+.login-button{
+    border: 2px solid #ededed;
+}
+.active{
+    background-color: #ededed;
+    color: #3f51b5;
 }

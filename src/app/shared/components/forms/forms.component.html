@@ -1,0 +1,38 @@
+  <form
+    class="form-container center"
+    [formGroup]="loginForm"
+    (click)="submit()"
+  >
+    <mat-form-field *ngIf="!email && !password">
+      <input
+        matInput
+        placeholder="name"
+        type="text"
+        required="true"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="email"
+        type="email"
+        formControlName="email"
+        required="true"
+      />
+    </mat-form-field>
+    <mat-error *ngIf="!loginForm.get('email')?.valid"></mat-error>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="password"
+        type="password"
+        formControlName="password"
+      />
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!loginForm.valid" *ngIf="email && password">
+      Login
+    </button>
+    <button mat-raised-button type="submit" [disabled]="!loginForm.valid" *ngIf="name">
+      Register
+    </button>
+  </form>
