@@ -7,6 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent implements OnInit {
+  @Input() login: boolean = false;
   @Input() email: boolean = false;
   @Input() name: boolean = false;
   @Input() password: boolean = false;

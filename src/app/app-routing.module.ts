@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginComponent } from './auth/components/login/login.component';
 
 const routes: Routes = [
   {
@@ -9,7 +8,7 @@ const routes: Routes = [
     component: LandingPageComponent
   },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () => import('./auth/auth-routing.module').then((m) => m.AuthRoutingModule)
   }
 ];
