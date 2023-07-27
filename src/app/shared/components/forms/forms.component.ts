@@ -8,12 +8,34 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class FormsComponent implements OnInit {
   @Input() login: boolean = false;
-  @Input() email: boolean = false;
-  @Input() name: boolean = false;
-  @Input() password: boolean = false;
+  @Input() register: boolean = false;
   constructor(private fb: FormBuilder) {}
 
+  get name() {
+    return this.registerForm.get('name');
+  }
+
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+
+  //LOGIN FORM
   loginForm = this.fb.group({
+    email: this.fb.control(
+      '',
+      Validators.compose([Validators.required, Validators.email])
+    ),
+    password: this.fb.control('', Validators.required),
+  });
+
+  //REGISTER FORM
+  registerForm = this.fb.group({
+    name: this.fb.control('', Validators.required),
     email: this.fb.control(
       '',
       Validators.compose([Validators.required, Validators.email])
