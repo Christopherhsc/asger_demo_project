@@ -1,94 +1,95 @@
-<ng-container *ngIf="login; else register">
-  <form
-    class="form-container center"
-    [formGroup]="loginForm"
-    (click)="submit()"
-  >
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="email"
-        type="email"
-        formControlName="email"
-        required="true"
-      />
-    </mat-form-field>
-    <mat-error *ngIf="!loginForm.get('email')?.valid"></mat-error>
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="password"
-        type="password"
-        formControlName="password"
-      />
-    </mat-form-field>
+<div class="background-image">
+  <div class="form-container">
+    <ng-container *ngIf="login; else register">
+      <h1 class="form-header-text" *ngIf="login">Login</h1>
+      <form class="form center" [formGroup]="loginForm" (click)="submit()">
+        <p class="input-info">Email:</p>
+        <mat-form-field class="form-inputs">
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            required="true"
+          />
+        </mat-form-field>
+        <mat-error *ngIf="!loginForm.get('email')?.valid"></mat-error>
+        <mat-form-field class="form-inputs">
+        <p class="input-info extra-padding">Password:</p>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            required="true"
+          />
+        </mat-form-field>
+        <div class="buttons-container pt-4 center">
+          <button
+            mat-raised-button
+            type="submit"
+            color="primary"
+            [disabled]="!loginForm.valid"
+          >
+            Login
+          </button>
+        </div>
 
-    <div class="buttons-container pt-4 center">
-      <button
-        mat-raised-button
-        type="submit"
-        color="primary"
-        [disabled]="!loginForm.valid"
-      >
-        Login
-      </button>
+        <div class="buttons-container pt-4 center">
+          <button mat-stroked-button type="submit" routerLink="/register">
+            Register
+          </button>
+        </div>
+      </form>
+    </ng-container>
 
-      <div class="buttons-container pt-4 center">
-        <button mat-raised-button type="submit" routerLink="/register">
-          Register
-        </button>
-      </div>
-    </div>
-  </form>
-</ng-container>
+    <ng-template #register>
+      <h1 class="form-header-text">Register</h1>
+      <form class="form center" [formGroup]="loginForm" (click)="submit()">
+        <mat-form-field>
+        <p class="input-info extra-padding">Name:</p>
+          <input matInput type="text" required="true" />
+        </mat-form-field>
+        <mat-form-field>
+        <p class="input-info extra-padding">Email:</p>
+          <input
+            class="input-fields"
+            matInput
+            type="email"
+            formControlName="email"
+            required="true"
+          />
+        </mat-form-field>
+        <mat-error *ngIf="!loginForm.get('email')?.valid"></mat-error>
+        <mat-form-field>
+        <p class="input-info extra-padding">Password:</p>
+          <input
+            class="input-fields"
+            matInput
+            type="password"
+            formControlName="password"
+          />
+        </mat-form-field>
 
-<ng-template #register>
-  <form
-    class="form-container center"
-    [formGroup]="loginForm"
-    (click)="submit()"
-  >
-    <mat-form-field>
-      <input matInput placeholder="name" type="text" required="true" />
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="email"
-        type="email"
-        formControlName="email"
-        required="true"
-      />
-    </mat-form-field>
-    <mat-error *ngIf="!loginForm.get('email')?.valid"></mat-error>
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="password"
-        type="password"
-        formControlName="password"
-      />
-    </mat-form-field>
-
-    <div class="buttons-container pt-4 center">
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        routerLink="['/user']"
-      >
-        Register account
-      </button>
-    </div>
-    <div class="buttons-container pt-4 center">
-      <button
-        mat-stroked-button
-        color="primary"
-        type="submit"
-        routerLink="/login"
-      >
-        Back to login
-      </button>
-    </div>
-  </form>
-</ng-template>
+        <div class="buttons-container pt-4 center">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            routerLink="['/user']"
+          >
+            Register account
+          </button>
+        </div>
+        <div class="buttons-container pt-4 center">
+          <button
+            mat-stroked-button
+            color="primary"
+            type="submit"
+            routerLink="/login"
+          >
+            Back to login
+          </button>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+</div>

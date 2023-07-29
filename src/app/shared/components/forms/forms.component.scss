@@ -1,4 +1,71 @@
-.buttons-container{
+.background-image {
+  background-image: url("../../../../assets/login-register-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow: hidden;
+}
+
+.form-container {
+  margin: auto;
+  border: 2px solid #ededed;
+  border-radius: 10px;
+  width: 40%;
+  padding: 5%;
+  transform: translate(0, 40%);
+}
+.form-header-text {
+  font-size: 45px;
+  text-decoration: underline;
+  font-style: italic;
+  color: #ededed;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.input-info {
+  color: #ededed;
+  margin: 0;
+}
+
+mat-form-field {
+  color: #ededed;
+}
+.mat-stroked-button:not(.mat-button-disabled) {
+  border-color: #ededed;
+  color: #ededed;
+}
+
+.extra-padding {
+  padding-bottom: 16px;
+}
+
+//MEDIA SCREENS
+
+@media screen and (max-width: 1200px) {
+  .form-container {
     width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .form-container {
+    width: 60%;
+  }
+  .form-header-text {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form-container {
+    width: 80%;
+    border: none;
     margin: auto;
+  }
+  .form-header-text {
+    font-size: 20px;
+  }
 }
